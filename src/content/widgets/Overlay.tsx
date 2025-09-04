@@ -10,6 +10,8 @@ function Overlay() {
 
     const [speed, setSpeed] = useState(1.0);
     const [step, setStep] = useState(.1);
+    const [settings_visible, setSettingsVisible] = useState(false);
+    const [settings_position, setSettingsPosition] = useState({top: 0, left: 0});
 
     useEffect(() => {
         const handleVideoHover = (video: HTMLVideoElement) => {
@@ -53,7 +55,6 @@ function Overlay() {
         return () => observer.disconnect();
     }, []);
 
-
     useEffect(() => {
         if (hoveredVideo) {
             hoveredVideo.playbackRate = speed;
@@ -67,37 +68,47 @@ function Overlay() {
         });
     }, [speed])
 
+    const adjust_speed = (step : number) => {
+        let value : number = Math.round((speed + step) * 100) / 100;
+        value = Math.min(Math.max(value, .1), 16.0);
+        setSpeed(value);
+    };
+
     if (!isHovering) return null;
 
     return (
-        <>
-            <div    
-            onMouseEnter={() => setIsHovering(true)}
-            onMouseLeave={() => setIsHovering(false)} 
-            style={{
-                backgroundColor: "rgba(0, 0, 0, 0.4)",
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "center",
-                width: "fit-content",
-                borderRadius: "10px",
-                position: "absolute",
-                zIndex: "99999999",
-                top: position.top,
-                left: position.left,
-                userSelect: "none"
-            }}>
+        <div onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
+            <div 
+                onContextMenu={(e) => {
+                    e.preventDefault();
+                    setSettingsVisible(true);
+                    setSettingsPosition({left: e.clientX, top: e.clientY});
+                }}
+                style={{
+                    backgroundColor: "rgba(0, 0, 0, 0.4)",
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: "fit-content",
+                    borderRadius: "10px",
+                    position: "absolute",
+                    zIndex: "99999998",
+                    top: position.top + 5,
+                    left: position.left + 5,
+                    userSelect: "none"
+                }}
+            >
                 <button style={{ 
                     backgroundColor: "rgba(0, 0, 0, 0.4)",
                     border: "0",
                     padding: "10px",
                     borderTopLeftRadius: "10px",
                     borderBottomLeftRadius: "10px"
-                }} onClick={() => setSpeed(Math.round((speed - step) * 100) / 100)}>
+                }} onClick={() => adjust_speed(-step)}>
                     <FontAwesomeIcon style={{color: "white", width: "10px"}} icon={faCaretLeft} />
                 </button>
-                <span style={{
+                <span onClick={() => {setSpeed(1.0)}} style={{
                     color: "white",
                     padding: "10px",
                     textAlign: "center",
@@ -109,13 +120,13 @@ function Overlay() {
                     padding: "10px",
                     borderTopRightRadius: "10px",
                     borderBottomRightRadius: "10px" 
-                }} onClick={() => setSpeed(Math.round((speed + step) * 100) / 100)}>
+                }} onClick={() => adjust_speed(step)}>
                     <FontAwesomeIcon style={{color: "white", width: "10px"}} icon={faCaretRight} />
                 </button>
-                <Settings step={step} set_step={setStep}/>
             </div>
-
-        </>
+        
+            <Settings step={step} set_step={setStep} visible={settings_visible} set_visible={setSettingsVisible} position={settings_position}/>
+        </div>
     )
 }
 

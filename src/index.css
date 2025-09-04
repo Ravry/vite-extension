@@ -1,0 +1,14 @@
+:root {
+  --primary-color: #fff;
+  --secondary-color: #121212;
+}
+
+body {
+  margin: 0;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}

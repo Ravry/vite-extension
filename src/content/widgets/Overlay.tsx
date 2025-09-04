@@ -2,14 +2,15 @@ import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import Settings from './Settings';
+import config from '../../../public/config.json'
 
 function Overlay() {
     const [hoveredVideo, setHoveredVideo] = useState<HTMLVideoElement | null>(null);
     const [isHovering, setIsHovering] = useState(false);
     const [position, setPosition] = useState<{top: number, left: number}>({top: 0, left: 0});
 
-    const [speed, setSpeed] = useState(1.0);
-    const [step, setStep] = useState(.1);
+    const [speed, setSpeed] = useState(config.speed);
+    const [step, setStep] = useState(config.step);
     const [settings_visible, setSettingsVisible] = useState(false);
     const [settings_position, setSettingsPosition] = useState({top: 0, left: 0});
 

@@ -32,7 +32,7 @@
 </div>
 
 >   **1. Install the Extension**
-    Add the Viewer Extension to Chrome by first downloading and then [loading it as an unpacked extension in Developer Mode](https://www.youtube.com/watch?v=oswjtLwCUqg).
+    Add the Viewer Extension to Chrome by first downloading, building and then [loading it as an unpacked extension in Developer Mode](https://www.youtube.com/watch?v=oswjtLwCUqg).
 
 >   **2. Open a Video**
     Navigate to any supported video on your favorite website.
@@ -45,18 +45,16 @@
 
 
 <div align="center">
-    <p
-        style="
-            padding: 5px; 
-            display: inline-block;
-            background-color: #f5f5f5;
-            "
-    >
+    <p style="
+        padding: 5px; 
+        display: inline-block;
+        background-color: #f5f5f5;
+    ">
     📸 Preview 📸
     </p>
 </div>
 
 <div align="center" style="display: flex; flex-direction: column; width: auto;">
     <img src="images/screenshots/youtube.png">
-    <img src="images/screenshots/tiktok.png">
+    <img src="images/screenshots/youtube_with_settings.png">
 </div>

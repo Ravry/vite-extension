@@ -1,69 +1,62 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<h2 align="center">Viewer-Extension</h2>
 
-Currently, two official plugins are available:
+<div align="center">
+    <p
+        style="
+            padding: 5px; 
+            display: inline-block;
+            background-color: #f5f5f5;
+            "
+    >
+    ⚠️ work in progress ⚠️
+    </p>
+</div>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<div align="center">
+    <img width="128" src="images/icon.png"/>
+</div>
 
-## Expanding the ESLint configuration
+>**Chrome Extension** designed to enhance your viewing experience. Easily **adjust video parameters**, and enjoy **more control** over your favorite content — all from a simple, intuitive interface.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+<div align="center">
+    <p
+        style="
+            padding: 5px; 
+            display: inline-block;
+            background-color: #f5f5f5;
+            "
+    >
+    🛠️ How to Use 🛠️
+    </p>
+</div>
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+>   **1. Install the Extension**
+    Add the Viewer Extension to Chrome by first downloading and then [loading it as an unpacked extension in Developer Mode](https://www.youtube.com/watch?v=oswjtLwCUqg).
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+>   **2. Open a Video**
+    Navigate to any supported video on your favorite website.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+>   **3. Adjust Playback Settings**
+    Hover over the video and a popup should appear.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+>   **4. Enjoy Enhanced Viewing**
+    Watch videos at your preferred speed and enjoy a smoother, more controlled experience.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+<div align="center">
+    <p
+        style="
+            padding: 5px; 
+            display: inline-block;
+            background-color: #f5f5f5;
+            "
+    >
+    📸 Preview 📸
+    </p>
+</div>
+
+<div align="center" style="display: flex; flex-direction: column; width: auto;">
+    <img src="images/screenshots/youtube.png">
+    <img src="images/screenshots/tiktok.png">
+</div>
